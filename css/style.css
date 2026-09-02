@@ -409,6 +409,98 @@ button { font-family: inherit; }
   .moment-card { padding: 20px 18px; }
 }
 
+/* ═══════════════ OUR LOVE STORY (CHAT) ═══════════════ */
+.story {
+  display: flex; flex-direction: column; gap: 48px;
+  max-width: 720px; margin: 0 auto;
+}
+
+.story-card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--wobble);
+  padding: 26px 30px;
+  box-shadow: var(--shadow-soft);
+  border: 2px solid #f2e5da;
+  transition: transform .3s ease;
+}
+.story-item:nth-child(odd) .story-card { transform: rotate(-.7deg); }
+.story-item:nth-child(even) .story-card { transform: rotate(.7deg); }
+.story-item .story-card:hover { transform: rotate(0) scale(1.015); }
+
+.story-when {
+  display: inline-block;
+  font-family: var(--font-round); font-weight: 700; font-size: .78rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  background: var(--pink-baby); color: var(--pink-deep);
+  padding: 4px 14px; border-radius: 999px; margin-bottom: 10px;
+}
+.story-item:nth-child(2n) .story-when { background: var(--sky); color: #33627f; }
+.story-item:nth-child(3n) .story-when { background: var(--butter); color: #8a6d1f; }
+
+.story-title { font-family: var(--font-round); font-weight: 700; font-size: 1.26rem; margin: 0 0 14px; color: var(--ink); }
+
+.story-chat { display: flex; flex-direction: column; gap: 8px; margin: 0 0 14px; }
+
+.bubble {
+  margin: 0; max-width: 88%;
+  padding: 10px 16px;
+  font-size: .98rem; line-height: 1.62;
+  border-radius: 20px;
+}
+.bubble-her { align-self: flex-start; background: var(--pink-baby); border-bottom-left-radius: 6px; }
+.bubble-him { align-self: flex-end; background: #eaf6fc; border: 1.5px solid #d3ebf8; border-bottom-right-radius: 6px; }
+
+.bubble-who {
+  align-self: flex-start;
+  font-family: var(--font-round); font-weight: 700; font-size: .64rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--pink);
+  margin: 2px 0 -3px 10px;
+}
+.bubble-who.who-him { align-self: flex-end; color: var(--sky-deep); margin: 2px 10px -3px 0; }
+
+.story-note {
+  font-family: var(--font-hand); font-size: 1.2rem; line-height: 1.65;
+  color: var(--ink-soft); margin: 4px 0 0;
+  white-space: pre-line;
+}
+
+.story-quote {
+  margin-top: 18px; text-align: center;
+  background: #fff8e3;
+  border: 2.5px dashed var(--butter-deep);
+  border-radius: var(--wobble-2);
+  padding: 18px 22px 16px;
+}
+.story-quote-big { font-family: var(--font-hand); font-weight: 700; font-size: 1.65rem; color: var(--ink); margin: 0; }
+.story-quote-sub { font-family: var(--font-hand); font-size: 1.18rem; color: var(--ink-soft); margin: 4px 0 0; }
+
+.story-item.big .story-card {
+  background: linear-gradient(160deg, #fff 0%, var(--pink-paper) 100%);
+  border: 2.5px solid var(--pink-baby);
+  padding: 38px 32px 32px;
+  transform: rotate(0);
+}
+.story-item.big .story-card::before {
+  content: "♡";
+  position: absolute; top: -17px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #fff; border: 2.5px solid var(--pink); color: var(--pink-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-round); font-size: 1.05rem;
+  box-shadow: var(--shadow-soft);
+}
+.story-item.big .story-title { font-size: 1.4rem; color: var(--pink-deep); }
+.story-item.big .story-note { color: var(--ink); font-size: 1.3rem; }
+
+@media (max-width: 640px) {
+  .story { gap: 36px; }
+  .story-card { padding: 20px 18px; }
+  .bubble { max-width: 94%; font-size: .95rem; }
+  .story-quote-big { font-size: 1.42rem; }
+  .story-item.big .story-card { padding: 30px 20px 26px; }
+}
+
 /* ═══════════════ VIDEOS ═══════════════ */
 .videos {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -508,6 +600,43 @@ button { font-family: inherit; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
+/* ═══════════════ HER FAVOURITE THINGS ═══════════════ */
+.favs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+.fav-card {
+  background: #fff;
+  border: 2.5px dashed var(--pink-baby);
+  border-radius: var(--wobble-2);
+  padding: 26px 20px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform .3s ease;
+}
+.fav-card:hover { transform: translateY(-5px) rotate(-1.2deg); }
+
+.fav-emoji { display: block; font-size: 2.1rem; margin-bottom: 10px; }
+
+.fav-label {
+  display: inline-block;
+  font-family: var(--font-round); font-weight: 700; font-size: .68rem;
+  letter-spacing: .16em; text-transform: uppercase;
+  background: var(--pink-baby); color: var(--pink-deep);
+  padding: 3px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+
+.fav-text { font-family: var(--font-hand); font-size: 1.18rem; line-height: 1.5; color: var(--ink); margin: 0; }
+
+.fav-item:nth-child(2n) .fav-card { border-color: var(--sky); }
+.fav-item:nth-child(2n) .fav-label { background: var(--sky); color: #33627f; }
+.fav-item:nth-child(3n) .fav-card { border-color: var(--butter-deep); }
+.fav-item:nth-child(3n) .fav-label { background: var(--butter); color: #8a6d1f; }
+.fav-item:nth-child(5n) .fav-card { border-color: var(--lav-deep); }
+.fav-item:nth-child(5n) .fav-label { background: var(--lav); color: #6d5a94; }
+
+@media (max-width: 960px) { .favs-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .favs-grid { gap: 16px; } .fav-card { padding: 20px 14px 18px; } .fav-text { font-size: 1.08rem; } }
+@media (max-width: 380px) { .favs-grid { grid-template-columns: 1fr; } }
+
 /* ═══════════════ LOVE CARDS ═══════════════ */
 .love-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -594,6 +723,7 @@ button { font-family: inherit; }
 .secret-hearts { color: var(--pink); letter-spacing: 1rem; font-size: 1.3rem; margin-bottom: 10px; }
 .secret-card h3 { font-family: var(--font-round); font-size: 1.7rem; color: var(--pink-deep); margin: 0 0 14px; }
 .secret-card p { font-family: var(--font-hand); font-size: 1.35rem; line-height: 1.7; margin: 0 0 10px; color: var(--ink); }
+#secretText { white-space: pre-line; }
 .secret-small { font-size: 1.05rem !important; color: var(--ink-soft) !important; }
 .secret-close {
   position: absolute; top: 12px; right: 14px;
@@ -620,7 +750,15 @@ button { font-family: inherit; }
   margin: 0 0 22px; color: var(--ink);
 }
 .final-title em { font-style: normal; color: var(--pink-deep); }
-.final-text { font-family: var(--font-hand); font-size: 1.5rem; line-height: 1.85; color: var(--ink); margin: 0 auto 14px; max-width: 36ch; }
+.final-text { font-family: var(--font-hand); font-size: 1.5rem; line-height: 1.85; color: var(--ink); margin: 0 auto 14px; max-width: 36ch; white-space: pre-line; }
+
+.final-motto { margin: 14px auto 10px; }
+.final-motto-line {
+  font-family: var(--font-hand); font-weight: 700;
+  font-size: clamp(1.9rem, 5.8vw, 2.5rem);
+  color: var(--pink-deep); margin: 0;
+}
+.final-motto-sub { font-family: var(--font-hand); font-size: 1.35rem; color: var(--ink-soft); margin: 6px 0 0; }
 .final-ps { font-size: .95rem; color: var(--ink-soft); margin: 0 0 30px; }
 
 .final-replay {

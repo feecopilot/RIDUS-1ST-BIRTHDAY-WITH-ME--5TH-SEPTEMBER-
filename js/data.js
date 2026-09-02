@@ -19,24 +19,19 @@ const SITE = {
 
   /* ───────────────────────────────────────────────
      THE BIRTHDAY LETTER
-     ⭐ When you have your big paragraph ready, paste it
-        between the quotes of LETTER.paragraphs — replace
-        the placeholder entry marked below.
      ─────────────────────────────────────────────── */
   LETTER: {
     salutation: "My dearest Ridu,",
     paragraphs: [
       "Happy birthday, my love. Today the whole world should slow down a little, because the softest heart in it was born today.",
 
-      // ⬇⬇⬇  THE BIG PARAGRAPH GOES HERE — replace this line ⬇⬇⬇
-      { placeholder: "…and here lives the paragraph I'm still writing for you — the big one, with all the words I'm still finding. It's coming, promise. ♡" },
-      // ⬆⬆⬆  THE BIG PARAGRAPH GOES HERE ⬆⬆⬆
+      "I kept trying to write you one big paragraph — but every time I started, it grew into a whole scrapbook. So here it is instead: a page with our coffee, our calls, your namaz mornings, your lipstick era, and every version of you since the very first photo.",
 
-      "I tried to wrap everything I feel into this little page — the photos, the videos, the silly stickers. But honestly? None of it comes close to the real thing. The real thing is you: your laugh, your calm, the way you make ordinary days feel like something worth remembering.",
+      "You once told me I'm the best thing that has ever happened to you — and I don't think I'll ever forget that. But honestly, Ridu? It's the other way around. You make my loudest days quiet. You believed in me on the days I didn't. Jab tum kehti ho “we will figure it out together”, I actually believe we will.",
 
-      "So here's my wish for your new year: more coffee dates, more laughter that hurts your cheeks, more of your beautiful namaz mornings, and me — right there beside you for all of it.",
+      "So here's my wish for your new year: more coffee dates, more laughter that hurts your cheeks, more of your beautiful namaz mornings — and me, right there beside you for all of it. Ridao Shafi. Ridao Kafi.",
     ],
-    sign: "— yours, always ♡",
+    sign: "— yours, always ♡ Zamaan",
   },
 
   /* ───────────────────────────────────────────────
@@ -102,6 +97,95 @@ const SITE = {
       title: "your day, Ridu",
       text: "And this whole page is just one of a thousand ways to say it: happy birthday, my love. Scroll on ♡",
       media: null,
+    },
+  ],
+
+  /* ───────────────────────────────────────────────
+     OUR LOVE STORY — the messages, in order
+     (who: "her" = pink bubble · "him" = blue bubble)
+     ⭐ To add another memory: copy one { ... } block,
+     keep the dates in order, change the text. ♡
+     ─────────────────────────────────────────────── */
+  STORY: [
+    {
+      when: "august 18 · 4:28 am",
+      title: "small message, big everything",
+      lines: [
+        { who: "her", text: "thankyou zamaan ali 🥰🥰🥰🥰" },
+      ],
+      note: "I don't think she knows how much even these small messages meant to me.",
+    },
+    {
+      when: "august 18 · 9:16 pm",
+      title: "operation: 3 magical words",
+      lines: [
+        { who: "him", text: "say those 3 magical words rida just say it 😭😭😭😭" },
+        { who: "her", text: "Tu baahar mil 😭😭😭" },
+      ],
+      note: "During ziyarat, you used to say this sentence more than anything, with that little cute head shake that I love so much. ❤️",
+    },
+    {
+      when: "august 20",
+      title: "three tiny confessions",
+      lines: [
+        { who: "her", text: "you on my mind too" },
+        { who: "her", text: "my melting point" },
+        { who: "her", text: "i love when people squish my gaal" },
+      ],
+      note: "and on the same day, I found out she likes sunflowers and white roses — and pink flowers even more. 🌻🤍🌸",
+    },
+    {
+      when: "august 21",
+      title: "the first “baby”",
+      lines: [],
+      note: "She called me baby for the first time. And I had gone nuts heheh. 😭❤️",
+    },
+    {
+      when: "august 24",
+      title: "the day she said i love you",
+      lines: [],
+      note: "The first “I love you” she said. The day she believed me. The day she told me I'm her jaanu. I never felt love until I found her. 😭❤️",
+      quote: {
+        big: "Ridao Shafi. Ridao Kafi.",
+        sub: "Rida is Rida. Rida is enough. She is my healer.",
+      },
+    },
+    {
+      when: "august 25 · 1:05 am",
+      title: "jaan, officially",
+      lines: [
+        { who: "her", text: "Aap bhi meri jaan ban chuke hai." },
+        { who: "her", text: "you are the best thing that has ever happened to me 😭❤️" },
+      ],
+      note: "I don't think I'll ever forget that.",
+    },
+    {
+      when: "august 26",
+      title: "the baal promise",
+      lines: [
+        { who: "her", text: "Mai tere baal theek karungi." },
+      ],
+      note: "And finally I found a girl jo mere zakhm saaf karen jab mai zanjeer karke aaun hehe. 😭❤️ I love you Ridu.",
+    },
+    {
+      when: "august 30",
+      title: "the cortisol report",
+      lines: [
+        { who: "her", text: "Aunty iim high cortisol but he (zamaan ali) makes me low cortisol." },
+      ],
+      note: "😭😭😭😭❤️ and then, there was this message ↓",
+    },
+    {
+      when: "saturday · 5:12 am",
+      title: "the 5:12 am novel",
+      big: true,
+      lines: [
+        {
+          who: "her",
+          text: "hello my baby i know you are sleeping meri baat sunke 😛😛 my good boy i love you so much ❤️ i love yoi for everything you do for me, to make me happy, jabse ive started talking to you i feel so much more better about myself and calmer with usual. i love jabhi you say ki we will figure it out together 🥹 i love everything about you, every single thing. even the things jisse maybe you feel ashamed to discuss, i love you and all the things that come along with you meri jaan. ok enough emo baatein abhi mei bhi chali sone kal college jaaungi byebye",
+        },
+      ],
+      note: "And honestly… I think this is where I understood that I didn't just find a girl I love. I found my Rida.\nMy jaan. My Ridu. My healer.",
     },
   ],
 
@@ -228,17 +312,39 @@ const SITE = {
   ],
 
   /* ───────────────────────────────────────────────
+     HER FAVOURITE THINGS — the official research
+     ─────────────────────────────────────────────── */
+  FAVOURITES: [
+    { emoji: "🍛", label: "fav food",      text: "chicken schezwan fried rice — and prawns, always" },
+    { emoji: "🎧", label: "fav song",      text: "“aaj na” by Ritviz 🥰 — even Raatan Lambiyan" },
+    { emoji: "💗", label: "fav colours",   text: "pink & black" },
+    { emoji: "💬", label: "fav phrase",    text: "“mai to flat tire bangya tha aakhey dekh kar”" },
+    { emoji: "📚", label: "fav character", text: "Hermione, from Harry Potter" },
+    { emoji: "🔮", label: "fav movie",     text: "the entire Harry Potter series" },
+    { emoji: "🚗", label: "fav animal",    text: "car. yes, really." },
+    { emoji: "🚗", label: "fav pet",       text: "also car. she is very serious about this." },
+    { emoji: "🌻", label: "fav flowers",   text: "sunflowers, white roses — and pink ones even more 🌻🤍🌸" },
+    { emoji: "☕", label: "fav minute",    text: "11:40 — coffee ke saath, Karbala" },
+    { emoji: "🎂", label: "fav day",       text: "September 5 — the day my favourite person was born" },
+    { emoji: "🩺", label: "her calling",   text: "child doctor — the perfect combo 🥹" },
+  ],
+
+  /* ───────────────────────────────────────────────
      THINGS I LOVE ABOUT YOU — tap-to-flip cards
      ─────────────────────────────────────────────── */
   LOVE_CARDS: [
-    { emoji: "😄", label: "your laugh",     text: "my favourite sound in any room — I'd cross the city just to hear it once." },
-    { emoji: "🌙", label: "your namaz",     text: "the way you hold your little world with faith — the most beautiful thing about you." },
-    { emoji: "☕", label: "our coffee",     text: "one cup, one minute at 11:40 — and suddenly the rest of my life had a direction." },
-    { emoji: "🎀", label: "your style",     text: "traditional, cozy, or that perfect lipstick — you always look exactly like you." },
-    { emoji: "✨", label: "your excitement", text: "the way you light up over little things — you make little things feel enormous." },
-    { emoji: "🕊", label: "your calm",      text: "even on my loudest days, one message from you and everything goes quiet and soft." },
-    { emoji: "💛", label: "your heart",     text: "gentle with everyone, always — the world is genuinely better because you're in it." },
-    { emoji: "📞", label: "your voice",     text: "the voice that ends my every day right — and starts the next one smiling." },
+    { emoji: "🙈", label: "the head shake",   text: "“tu baahar mil” during ziyarat, with that little cute head shake — my favourite reflex in the whole world. ❤️" },
+    { emoji: "😳", label: "squishy gaal",     text: "“i love when people squish my gaal” — permission granted. permanently. no take-backs." },
+    { emoji: "🌡", label: "her superpower",   text: "“aunty, iim high cortisol — but he makes me low cortisol.” certified calm-bringer. 😭" },
+    { emoji: "🥰", label: "my good boy era",  text: "“my good boy i love you so much ❤️” — sent at 5:12 am, unprompted, unforgettable." },
+    { emoji: "🤝", label: "figure it out",    text: "she loves when I say “we will figure it out together.” honestly? with her, everything figures itself out. 🥹" },
+    { emoji: "💇", label: "the baal promise", text: "“mai tere baal theek karungi” — she'll fix my hair, and jab mai zanjeer karke aaun, she'll clean my zakhm. my person. 😭❤️" },
+    { emoji: "😄", label: "her laugh",        text: "my favourite sound in any room — I'd cross the city just to hear it once." },
+    { emoji: "🌙", label: "her namaz",        text: "the way she holds her little world with faith — the most beautiful thing about her." },
+    { emoji: "☕", label: "our coffee",       text: "one cup, one photo at 11:40 — and suddenly the rest of my life had a direction." },
+    { emoji: "💋", label: "the lipstick era", text: "her latest video is proof: she doesn't need filters — she IS one. ✿" },
+    { emoji: "🌸", label: "her calm",         text: "even on my loudest days, one message from her and everything goes quiet and soft." },
+    { emoji: "📞", label: "her voice",        text: "the voice that ends my every day right — and starts the next one smiling." },
   ],
 
   /* ───────────────────────────────────────────────
@@ -246,16 +352,18 @@ const SITE = {
      ─────────────────────────────────────────────── */
   SECRET: {
     title: "you found the secret ♡",
-    text: "If I had one sticker for every time I thought of you, this page would run out of room — and so would the whole internet. You are so deeply, stubbornly loved, Ridu.",
-    small: "(psst — check back every birthday. I plan to keep adding pages ♡)",
+    text: "Ridao Shafi.\nRidao Kafi.\nRida is Rida.\nRida is enough.\nShe is my healer. ♡",
+    small: "(this whole website was really just wrapping paper for these three lines)",
   },
 
   /* ───────────────────────────────────────────────
      FINAL MESSAGE
      ─────────────────────────────────────────────── */
   FINAL: {
-    text: "I hope this little corner of the internet reminds you how loved you are — today, tomorrow, and every ordinary day in between.",
-    ps: "happy birthday, my Ridu ♡ come back to this page whenever you need proof.",
-    footer: "made with patience, stickers and too much love · september 5",
+    text: "and honestly… I think this is where I understood that I didn't just find a girl I love.\nI found my Rida. My jaan. My Ridu. My healer.",
+    motto: "Ridao Shafi. Ridao Kafi.",
+    mottoSub: "Rida is Rida. Rida is enough. ❤️",
+    ps: "happy 5th of September, meri jaan. I love you — yours forever, Zamaan ♡",
+    footer: "made with patience, stickers and too much love · for Rida Fatema Babul · september 5",
   },
 };

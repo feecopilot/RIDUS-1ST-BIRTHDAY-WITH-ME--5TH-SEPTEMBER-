@@ -198,7 +198,75 @@
     });
   })();
 
-  /* ═══════════ 6 · VIDEOS ═══════════ */
+  /* ═══════════ 6 · OUR LOVE STORY (CHAT BUBBLES) ═══════════ */
+  (function story() {
+    const wrap = $("#storyWrap");
+    if (!wrap || !SITE.STORY) return;
+    SITE.STORY.forEach((m) => {
+      const item = document.createElement("article");
+      item.className = "story-item reveal" + (m.big ? " big" : "");
+
+      const card = document.createElement("div");
+      card.className = "story-card";
+
+      const when = document.createElement("span");
+      when.className = "story-when";
+      when.textContent = m.when;
+      card.appendChild(when);
+
+      if (m.title) {
+        const t = document.createElement("h3");
+        t.className = "story-title";
+        t.textContent = m.title;
+        card.appendChild(t);
+      }
+
+      if (m.lines && m.lines.length) {
+        const chat = document.createElement("div");
+        chat.className = "story-chat";
+        let prevWho = null;
+        m.lines.forEach((ln) => {
+          if (ln.who !== prevWho) {
+            const who = document.createElement("span");
+            who.className = "bubble-who" + (ln.who === "him" ? " who-him" : "");
+            who.textContent = ln.who === "him" ? "me" : "ridu ♡";
+            chat.appendChild(who);
+            prevWho = ln.who;
+          }
+          const b = document.createElement("p");
+          b.className = "bubble " + (ln.who === "him" ? "bubble-him" : "bubble-her");
+          b.textContent = ln.text;
+          chat.appendChild(b);
+        });
+        card.appendChild(chat);
+      }
+
+      if (m.note) {
+        const n = document.createElement("p");
+        n.className = "story-note";
+        n.textContent = m.note;
+        card.appendChild(n);
+      }
+
+      if (m.quote) {
+        const q = document.createElement("div");
+        q.className = "story-quote";
+        const big = document.createElement("p");
+        big.className = "story-quote-big";
+        big.textContent = m.quote.big;
+        const sub = document.createElement("p");
+        sub.className = "story-quote-sub";
+        sub.textContent = m.quote.sub;
+        q.append(big, sub);
+        card.appendChild(q);
+      }
+
+      item.appendChild(card);
+      wrap.appendChild(item);
+    });
+  })();
+
+  /* ═══════════ 7 · VIDEOS ═══════════ */
   (function videos() {
     const grid = $("#videosGrid");
     if (!grid || !SITE.VIDEOS) return;
@@ -314,7 +382,37 @@
     });
   })();
 
-  /* ═══════════ 8 · LOVE CARDS ═══════════ */
+  /* ═══════════ 8 · HER FAVOURITE THINGS ═══════════ */
+  (function favourites() {
+    const grid = $("#favsGrid");
+    if (!grid || !SITE.FAVOURITES) return;
+    SITE.FAVOURITES.forEach((f) => {
+      const item = document.createElement("div");
+      item.className = "fav-item reveal";
+
+      const card = document.createElement("div");
+      card.className = "fav-card";
+
+      const em = document.createElement("span");
+      em.className = "fav-emoji";
+      em.textContent = f.emoji;
+      em.setAttribute("aria-hidden", "true");
+
+      const label = document.createElement("span");
+      label.className = "fav-label";
+      label.textContent = f.label;
+
+      const text = document.createElement("p");
+      text.className = "fav-text";
+      text.textContent = f.text;
+
+      card.append(em, label, text);
+      item.appendChild(card);
+      grid.appendChild(item);
+    });
+  })();
+
+  /* ═══════════ 9 · LOVE CARDS ═══════════ */
   (function loveCards() {
     const grid = $("#loveGrid");
     if (!grid || !SITE.LOVE_CARDS) return;
@@ -354,7 +452,7 @@
     });
   })();
 
-  /* ═══════════ 9 · SECRET MODAL ═══════════ */
+  /* ═══════════ 10 · SECRET MODAL ═══════════ */
   (function secret() {
     const latch = $("#secretLatch");
     const modal = $("#secretModal");
@@ -383,13 +481,29 @@
     });
   })();
 
-  /* ═══════════ 10 · FINAL MESSAGE + FLOATING HEARTS ═══════════ */
+  /* ═══════════ 11 · FINAL MESSAGE + FLOATING HEARTS ═══════════ */
   (function final() {
     const t = $("#finalText");
     const ps = $("#finalPs");
     if (t && SITE.FINAL) {
       t.textContent = SITE.FINAL.text;
       ps.textContent = SITE.FINAL.ps;
+      const motto = $("#finalMotto");
+      if (motto) {
+        motto.textContent = "";
+        if (SITE.FINAL.motto) {
+          const mo = document.createElement("p");
+          mo.className = "final-motto-line";
+          mo.textContent = SITE.FINAL.motto;
+          motto.appendChild(mo);
+        }
+        if (SITE.FINAL.mottoSub) {
+          const ms = document.createElement("p");
+          ms.className = "final-motto-sub";
+          ms.textContent = SITE.FINAL.mottoSub;
+          motto.appendChild(ms);
+        }
+      }
       const foot = $(".final-footer");
       if (foot) foot.textContent = SITE.FINAL.footer;
     }
@@ -420,7 +534,7 @@
     }
   })();
 
-  /* ═══════════ 11 · LIGHTBOX ═══════════ */
+  /* ═══════════ 12 · LIGHTBOX ═══════════ */
   const lb = $("#lightbox");
   const lbMedia = $("#lbMedia");
   const lbCaption = $("#lbCaption");
@@ -489,7 +603,7 @@
     if (e.key === "ArrowRight") lbStep(1);
   });
 
-  /* ═══════════ 12 · SCROLL REVEALS ═══════════ */
+  /* ═══════════ 13 · SCROLL REVEALS ═══════════ */
   (function reveals() {
     const els = $$(".reveal");
     if (REDUCED || !("IntersectionObserver" in window)) {
@@ -511,7 +625,7 @@
     els.forEach((el) => io.observe(el));
   })();
 
-  /* ═══════════ 13 · MUSIC BOX (WebAudio) ═══════════ */
+  /* ═══════════ 14 · MUSIC BOX (WebAudio) ═══════════ */
   (function musicBox() {
     const btn = $("#musicToggle");
     if (!btn) return;

@@ -2,9 +2,10 @@
 
 A handmade digital scrapbook birthday website for **Rida Fatema Babul (Ridu)** — September 5.
 
-Kawaii scrapbook style: polaroid collage, love-letter paper, memory timeline,
+Kawaii scrapbook style: love-letter paper, polaroid collage, memory timeline,
+the **love-story chat** (august 18 → the 5:12 am novel, in her own words 💌),
 her videos (COFFEE101 · LIPSTICK101 · NAMAZ101), a 68-photo album in 3 chapters,
-flip-cards, a hidden secret, a music box, and floating hearts.
+her favourite things, flip-cards, a hidden secret, a music box, and floating hearts.
 
 No build tools. No frameworks. Plain HTML + CSS + JS — perfect for GitHub Pages.
 
@@ -53,14 +54,14 @@ quotes, save, commit. That's it.
 | What | Where in `js/data.js` |
 |---|---|
 | The birthday letter | `LETTER` |
-| ⭐ **Your big paragraph** | `LETTER.paragraphs` — replace the line marked `THE BIG PARAGRAPH GOES HERE` |
-| Collage photos & captions | `COLLAGE` |
+| **Our love story — the chat messages, in order** | `STORY` (pink bubble = her, blue = me) |
+| Her favourite things (food, songs, the “car”…) | `FAVOURITES` |
 | Timeline moments (Aug 11, Karbala, 11:40…) | `TIMELINE` |
 | Videos & captions | `VIDEOS` |
 | Album chapters & captions | `ALBUM` |
 | Love cards | `LOVE_CARDS` |
-| Secret message | `SECRET` |
-| Final message | `FINAL` |
+| Secret message (the bunny) | `SECRET` |
+| Final message + motto | `FINAL` |
 
 ### Add a new photo later
 1. Drop `myphoto.jpg` into `assets/photos/`
