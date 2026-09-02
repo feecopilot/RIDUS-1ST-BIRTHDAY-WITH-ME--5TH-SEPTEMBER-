@@ -81,7 +81,7 @@
     const sal = $("#letterSalutation");
     const body = $("#letterBody");
     const sign = $("#letterSign");
-    if (!body || !window.SITE || !SITE.LETTER) return;
+    if (!body || typeof SITE === "undefined" || !SITE.LETTER) return;
     sal.textContent = SITE.LETTER.salutation;
     SITE.LETTER.paragraphs.forEach((p) => {
       const el = document.createElement("p");
