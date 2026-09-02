@@ -1,0 +1,89 @@
+HOW TO PUT YOUR WEBSITE ONLINE (GITHUB PAGES)
+==============================================
+No coding needed. About 5 minutes. Follow exactly, step by step.
+
+
+STEP 1 - GET THE FILES READY
+----------------------------
+1. Unzip ridu-birthday-website.zip
+   (right-click -> "Extract All" on Windows, or just double-click it on Mac)
+2. Open the folder it creates. You should see these things:
+       index.html   README.md   HOW-TO-PUT-ONLINE.txt
+       css  (folder)   js  (folder)   assets  (folder)
+   If you only see ONE folder inside, open that folder instead.
+3. Double-click index.html -> the website opens in your browser.
+   Check you like it. This exact thing is what will go online.
+
+
+STEP 2 - CREATE THE GITHUB REPOSITORY
+-------------------------------------
+1. Go to github.com and log in (free account is fine)
+2. Click the + icon (top right corner) -> "New repository"
+3. Repository name:  ridu-birthday
+   (any name works - small letters, no spaces)
+4. Select  "Public"     <-- VERY IMPORTANT!
+   A PRIVATE repository will NOT work with free GitHub Pages.
+   This is the #1 reason people see "404 not found".
+5. Click the green button "Create repository"
+
+
+STEP 3 - UPLOAD THE FILES
+-------------------------
+1. On the empty repository page, click the small text link
+   that says  "uploading an existing file"
+2. Go back to your unzipped folder from Step 1
+3. Click inside the folder and press  Ctrl+A  (or Cmd+A on Mac)
+   so EVERYTHING is selected
+4. Drag all of it into the big upload box in your browser
+5. Wait until you see them all listed:
+       index.html, css/, js/, assets/, README.md ...
+6. Click the green "Commit changes" button -> "Commit changes" again
+
+
+STEP 4 - TURN ON GITHUB PAGES
+-----------------------------
+1. In your repository, click "Settings" (top bar)
+2. In the left sidebar, click "Pages"
+3. Under "Build and deployment" set:
+       Source:   "Deploy from a branch"
+       Branch:   "main"    and folder "/ (root)"
+   (if your repo only has a "master" branch, use that one)
+4. Click "Save"
+
+
+STEP 5 - GET YOUR LINK
+----------------------
+1. Wait 2-3 minutes, then refresh the Pages page
+2. A box at the top will show your live website address:
+       https://YOUR-USERNAME.github.io/ridu-birthday/
+3. Open it. Send it to her. Done ♡
+
+
+IF SOMETHING IS NOT WORKING - FIXES
+-----------------------------------
+"404 - page not found"
+   -> Your repository is probably Private. Fix:
+      Settings -> General -> scroll to "Danger Zone" ->
+      "Change visibility" -> make it Public
+   -> Or you just need to wait 5 more minutes (first build is slow)
+   -> Or index.html is missing / renamed. It must be exactly
+      "index.html" at the top level of the repository.
+
+"The site opens but photos and videos are missing"
+   -> The assets folder did not upload properly. Fix:
+      On the repository page: "Add file" -> "Upload files" ->
+      drag the "assets" FOLDER in -> "Commit changes"
+
+"There is no Pages option in Settings"
+   -> The repository is Private. Make it Public first (see the
+      404 fix above), then Settings -> Pages will appear.
+
+"I uploaded the wrong files / want to start over"
+   -> You can delete any file: click it -> trash icon -> commit.
+      Then re-upload the correct ones.
+
+Want to change any words AFTER it's online?
+   -> Go to your repository on github.com
+   -> Click js/data.js -> click the pencil icon
+   -> Edit the text between the quotes
+   -> "Commit changes" -> the live site updates in ~1 minute

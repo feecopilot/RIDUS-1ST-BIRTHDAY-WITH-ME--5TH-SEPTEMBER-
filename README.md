@@ -17,7 +17,12 @@ No build tools. No frameworks. Plain HTML + CSS + JS — perfect for GitHub Page
 
 1. Go to **github.com** and sign in.
 2. Click the **+** (top right) → **New repository**.
-3. Name it anything, e.g. `ridu-birthday` → **Create repository**.
+3. Name it anything, e.g. `ridu-birthday` → select **“Public”** → **Create repository**.
+   ⚠️ **Public is required** — a Private repo will NEVER show the site
+   (free GitHub Pages only works for public repos). This is the #1 cause
+   of “404 not found”.
+   (If you already made it private: Settings → General → Danger Zone →
+   Change visibility → Public.)
 4. On the new empty repo page, click **“uploading an existing file”**.
 5. Drag **ALL the files and folders from this project** into the upload box:
    `index.html`, `css/`, `js/`, `assets/`, `README.md`, `.gitignore`.
@@ -43,6 +48,24 @@ git push -u origin main
 ```
 
 Then do steps 7–9 from Way 1 (Settings → Pages → main → root → Save).
+
+> Prefer Way 1 if git asks you for logins/tokens you don’t have —
+> the website way needs zero installs and zero passwords beyond github.com.
+
+---
+
+## 🩹 “It’s not working” — quick fixes
+
+| What you see | What it means | The fix |
+|---|---|---|
+| **404 — page not found** | repo is **Private**, or the build is still running, or `index.html` isn’t at the top level | make repo Public (Settings → General → Danger Zone → Change visibility) · wait 5 min · check `index.html` sits at repo root |
+| Site opens but **no photos/videos** | the `assets` folder didn’t upload | repo → “Add file” → “Upload files” → drag the **assets folder** → Commit |
+| **No “Pages” in Settings** | repo is Private | make it Public, then Settings → Pages appears |
+| Link shows but **looks unstyled/white** | `css/` or `js/` didn’t upload | re-upload `css` and `js` folders the same way |
+| Want to start over | — | delete files in the repo (click file → 🗑️) and re-upload |
+
+The full beginner walkthrough (with every click) is in **`HOW-TO-PUT-ONLINE.txt`** —
+open it with Notepad / TextEdit, no technical knowledge needed.
 
 ---
 
