@@ -27,9 +27,9 @@ const SITE = {
 
       "I kept trying to write you one big paragraph — but every time I started, it grew into a whole scrapbook. So here it is instead: a page with our coffee, our calls, your namaz mornings, your lipstick era, and every version of you since the very first photo.",
 
-      "You once told me I'm the best thing that has ever happened to you — and I don't think I'll ever forget that. But honestly, Ridu? It's the other way around. You make my loudest days quiet. You believed in me on the days I didn't. Jab tum kehti ho “we will figure it out together”, I actually believe we will.",
+      "You once told me I'm the best thing that has ever happened to you — and I don't think I'll ever forget that. But honestly, Ridu? It's the other way around. You make my loudest days quiet.",
 
-      "So here's my wish for your new year: more coffee dates, more laughter that hurts your cheeks, more of your beautiful namaz mornings — and me, right there beside you for all of it. Ridao Shafi. Ridao Kafi.",
+      "so heres my wish for you every year ziyarats more sucessful more baynulharamain meetups and more coffee but ill pay ha heheh ridao shafi ridao kafi lets gooo",
     ],
     sign: "— yours, always ♡ Zamaan",
   },
@@ -43,7 +43,7 @@ const SITE = {
     { src: "assets/photos/photo_023.jpg", cap: "the strawberry day",        tilt: 1.5,  tape: "tc" },
     { src: "assets/photos/photo_041.jpg", cap: "that big smile",            tilt: -2,   tape: "tr" },
     { src: "assets/photos/photo_018.jpg", cap: "little Ridu ♡",             tilt: 4,    tape: "tl" },
-    { src: "assets/photos/photo_021.jpg", cap: "golden days",               tilt: -1.5, tape: "tc" },
+    { src: "assets/photos/photo_021.jpg", cap: "your gret friend kema",     tilt: -1.5, tape: "tc" },
     { src: "assets/photos/photo_060.jpg", cap: "just glowing",              tilt: 2,    tape: "tr" },
     { src: "assets/photos/photo_044.jpg", cap: "golden girl",               tilt: -3.5, tape: "tl" },
     { src: "assets/photos/photo_065.jpg", cap: "soft light, soft heart",    tilt: 1,    tape: "tc" },
@@ -87,8 +87,8 @@ const SITE = {
     {
       icon: "💍",
       when: "the promise",
-      title: "a tiny ring, a giant meaning",
-      text: "A little sparkle on your hand that says everything we don't always say out loud.",
+      title: "your butteryfly wala ringggggg hehehe",
+      text: "",
       media: { src: "assets/photos/photo_062.jpg", cap: "the promise ♡", video: null },
     },
     {
@@ -256,11 +256,10 @@ const SITE = {
         { src: "assets/photos/photo_010.jpg", cap: "that gaze" },
         { src: "assets/photos/photo_011.jpg", cap: "soft moments" },
         { src: "assets/photos/photo_012.jpg", cap: "style file ♡" },
-        { src: "assets/photos/photo_021.jpg", cap: "golden days" },
+        { src: "assets/photos/photo_021.jpg", cap: "your gret friend kema" },
         { src: "assets/photos/photo_022.jpg", cap: "sunny hearts" },
         { src: "assets/photos/photo_023.jpg", cap: "the strawberry squad" },
         { src: "assets/photos/photo_024.jpg", cap: "henna hands, delicate heart" },
-        { src: "assets/photos/photo_028.jpg", cap: "peaceful nights" },
         { src: "assets/photos/photo_031.jpg", cap: "gatherings and grins" },
         { src: "assets/photos/photo_034.jpg", cap: "the look ♡" },
         { src: "assets/photos/photo_035.jpg", cap: "that smile" },
@@ -293,7 +292,6 @@ const SITE = {
         { src: "assets/photos/photo_048.jpg", cap: "happy girl ♡" },
         { src: "assets/photos/photo_050.jpg", cap: "art from the heart" },
         { src: "assets/photos/photo_052.jpg", cap: "sweetest" },
-        { src: "assets/photos/photo_053.jpg", cap: "our video calls ♡" },
         { src: "assets/photos/photo_054.jpg", cap: "home and happy" },
         { src: "assets/photos/photo_055.jpg", cap: "silly and cute" },
         { src: "assets/photos/photo_057.jpg", cap: "the ring ♡" },
