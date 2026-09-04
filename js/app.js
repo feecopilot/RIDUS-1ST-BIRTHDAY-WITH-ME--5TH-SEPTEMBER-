@@ -164,10 +164,12 @@
       title.textContent = m.title;
       card.appendChild(title);
 
-      const text = document.createElement("p");
-      text.className = "moment-text";
-      text.textContent = m.text;
-      card.appendChild(text);
+      if (m.text) {
+        const text = document.createElement("p");
+        text.className = "moment-text";
+        text.textContent = m.text;
+        card.appendChild(text);
+      }
 
       if (m.media) {
         const idx = lbRegister(m.media.src, m.media.cap, m.media.video);
