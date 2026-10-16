@@ -268,6 +268,254 @@
     });
   })();
 
+  /* ═══════════ 6.5 · MY VIRTUAL DIARY ♡ ═══════════ */
+  (function diary() {
+    const wrap = $("#diaryWrap");
+    if (!wrap || !SITE.DIARY || !SITE.DIARY.length) return;
+
+    const BOW = '<svg viewBox="0 0 120 84" width="86" height="60" aria-hidden="true">'
+      + '<path d="M58 42 C40 16, 10 18, 15 39 C18 53, 42 51, 58 42 z" fill="#ffd9e8" stroke="#5b4640" stroke-width="2.5"/>'
+      + '<path d="M62 42 C80 16, 110 18, 105 39 C102 53, 78 51, 62 42 z" fill="#ffd9e8" stroke="#5b4640" stroke-width="2.5"/>'
+      + '<path d="M54 48 q-7 17 -17 25 l10 3 q5 -13 11 -23 z" fill="#ff8fb8" stroke="#5b4640" stroke-width="2.2"/>'
+      + '<path d="M66 48 q7 17 17 25 l-10 3 q-5 -13 -11 -23 z" fill="#ff8fb8" stroke="#5b4640" stroke-width="2.2"/>'
+      + '<circle cx="60" cy="42" r="9.5" fill="#ff8fb8" stroke="#5b4640" stroke-width="2.5"/>'
+      + '</svg>';
+    const HEART_DASH = '<svg viewBox="0 0 40 40" width="46" height="46" aria-hidden="true">'
+      + '<path d="M20 34 C12 27 5 22 5 15 C5 10.4 8.9 7 13.5 7 c2.7 0 5.1 1.3 6.5 3.3 C21.4 8.3 23.8 7 26.5 7 31.1 7 35 10.4 35 15 35 22 28 27 20 34z" fill="none" stroke="#e8a9c0" stroke-width="2.5" stroke-dasharray="4 4"/>'
+      + '</svg>';
+
+    SITE.DIARY.forEach((entry, i) => {
+      const el = document.createElement("article");
+      el.className = "diary-entry reveal" + (entry.featured ? " featured" : "");
+      el.id = "diary-entry-" + entry.id;
+
+      /* — the closed cover — */
+      const cover = document.createElement("button");
+      cover.type = "button";
+      cover.className = "diary-cover";
+      cover.setAttribute("aria-expanded", "false");
+      cover.setAttribute("aria-controls", "diaryPage-" + entry.id);
+      cover.setAttribute("aria-label", "Open my diary: " + entry.title);
+      cover.innerHTML = BOW;
+      const coverLabel = document.createElement("p");
+      coverLabel.className = "diary-cover-label";
+      coverLabel.textContent = "my virtual diary";
+      const coverFor = document.createElement("p");
+      coverFor.className = "diary-cover-for";
+      coverFor.textContent = "for Ridu ♡";
+      const coverVol = document.createElement("p");
+      coverVol.className = "diary-cover-volume";
+      coverVol.textContent = "volume " + (i + 1) + " ♡";
+      const coverOpen = document.createElement("span");
+      coverOpen.className = "diary-cover-open";
+      coverOpen.textContent = "open the diary ♡";
+      cover.append(coverLabel, coverFor, coverVol, coverOpen);
+      el.appendChild(cover);
+
+      /* — the page itself — */
+      const pageWrap = document.createElement("div");
+      pageWrap.className = "diary-page-wrap";
+      pageWrap.id = "diaryPage-" + entry.id;
+      pageWrap.hidden = true;
+
+      const page = document.createElement("div");
+      page.className = "diary-page";
+
+      const stamp = document.createElement("span");
+      stamp.className = "diary-stamp";
+      stamp.textContent = entry.stamp;
+      page.appendChild(stamp);
+
+      const title = document.createElement("h3");
+      title.className = "diary-title";
+      title.id = "diaryTitle-" + entry.id;
+      title.tabIndex = -1;
+      title.textContent = entry.title;
+      page.appendChild(title);
+
+      if (entry.subtitle) {
+        const sub = document.createElement("p");
+        sub.className = "diary-subtitle";
+        sub.textContent = entry.subtitle;
+        page.appendChild(sub);
+      }
+
+      /* photos: real ones open in the lightbox, none = a cute "to be tucked in" slot */
+      if (entry.photos && entry.photos.length) {
+        const phWrap = document.createElement("div");
+        phWrap.className = "diary-photos";
+        entry.photos.forEach((p) => {
+          const fig = document.createElement("figure");
+          fig.className = "diary-photo";
+          const idx = lbRegister(p.src, p.cap, null);
+          const img = document.createElement("img");
+          img.src = p.src;
+          img.alt = p.cap;
+          img.loading = "lazy";
+          img.addEventListener("click", () => lbOpen(idx));
+          fig.appendChild(img);
+          const cap = document.createElement("figcaption");
+          cap.className = "diary-photo-cap";
+          cap.textContent = p.cap;
+          fig.appendChild(cap);
+          phWrap.appendChild(fig);
+        });
+        page.appendChild(phWrap);
+      } else {
+        const phWrap = document.createElement("div");
+        phWrap.className = "diary-photos";
+        const fig = document.createElement("figure");
+        fig.className = "diary-photo";
+        const frame = document.createElement("div");
+        frame.className = "diary-photo-frame";
+        frame.innerHTML = HEART_DASH;
+        const someday = document.createElement("span");
+        someday.textContent = "someday ♡";
+        frame.appendChild(someday);
+        fig.appendChild(frame);
+        const cap = document.createElement("figcaption");
+        cap.className = "diary-photo-cap";
+        cap.textContent = "a photo to be tucked in here someday ♡";
+        fig.appendChild(cap);
+        phWrap.appendChild(fig);
+        page.appendChild(phWrap);
+      }
+
+      /* sections — first two readable right away, the rest behind the button */
+      entry.sections.forEach((sec, s) => {
+        const secEl = document.createElement("section");
+        secEl.className = "diary-sec";
+        secEl.id = "diarySec-" + entry.id + "-" + s;
+        const h = document.createElement("h4");
+        h.className = "diary-sec-title";
+        h.tabIndex = -1;
+        h.textContent = sec.heading;
+        secEl.appendChild(h);
+        let bohatRun = 0;
+        sec.paragraphs.forEach((p) => {
+          const isObj = typeof p === "object" && p !== null;
+          const text = isObj ? p.text : p;
+          const style = isObj ? p.style : null;
+          const para = document.createElement("p");
+          if (style === "bohat") {
+            bohatRun += 1;
+            para.className = "diary-bohat";
+            para.dataset.n = String(Math.min(bohatRun, 4));
+          } else if (style === "bohat-final" || style === "bohat-line" || style === "meaning") {
+            para.className = "diary-" + style;
+          } else {
+            para.className = "diary-p";
+          }
+          para.textContent = text;
+          secEl.appendChild(para);
+        });
+        if (s > 1) secEl.hidden = true;
+        page.appendChild(secEl);
+      });
+
+      /* optional videos (for future entries) */
+      if (entry.videos && entry.videos.length) {
+        const vWrap = document.createElement("div");
+        vWrap.className = "diary-videos";
+        entry.videos.forEach((v) => {
+          const fig = document.createElement("figure");
+          fig.className = "diary-video";
+          const vid = document.createElement("video");
+          vid.src = v.src;
+          if (v.poster) vid.poster = v.poster;
+          vid.controls = true;
+          vid.preload = "metadata";
+          vid.setAttribute("playsinline", "");
+          fig.appendChild(vid);
+          const cap = document.createElement("figcaption");
+          cap.textContent = v.cap || "";
+          fig.appendChild(cap);
+          vWrap.appendChild(fig);
+        });
+        page.appendChild(vWrap);
+      }
+
+      /* the "read my next thought" button */
+      const nextBtn = document.createElement("button");
+      nextBtn.type = "button";
+      nextBtn.className = "diary-next";
+      nextBtn.textContent = "read my next thought 🤍";
+
+      /* the ending — sign-off, seal, hidden heart note */
+      const end = document.createElement("div");
+      end.className = "diary-end";
+      end.hidden = true;
+      const sign = document.createElement("p");
+      sign.className = "diary-signoff";
+      sign.textContent = entry.signOff;
+      end.appendChild(sign);
+      const sealRow = document.createElement("div");
+      sealRow.className = "diary-seal-row";
+      const seal = document.createElement("span");
+      seal.className = "diary-seal";
+      seal.textContent = entry.seal;
+      const heartBtn = document.createElement("button");
+      heartBtn.type = "button";
+      heartBtn.className = "diary-heart";
+      heartBtn.textContent = "♡";
+      heartBtn.setAttribute("aria-expanded", "false");
+      heartBtn.setAttribute("aria-controls", "diaryHeart-" + entry.id);
+      heartBtn.setAttribute("aria-label", "a tiny note hidden behind this heart");
+      sealRow.append(seal, heartBtn);
+      end.appendChild(sealRow);
+      const note = document.createElement("p");
+      note.className = "diary-heart-note";
+      note.id = "diaryHeart-" + entry.id;
+      note.hidden = true;
+      note.textContent = entry.heartNote;
+      end.appendChild(note);
+
+      page.append(nextBtn, end);
+      pageWrap.appendChild(page);
+      el.appendChild(pageWrap);
+      wrap.appendChild(el);
+
+      /* — interactions — */
+      function openDiary() {
+        if (cover.dataset.open === "true") return;
+        cover.dataset.open = "true";
+        cover.setAttribute("aria-expanded", "true");
+        pageWrap.hidden = false;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          pageWrap.classList.add("open");
+        }));
+        setTimeout(() => { if (cover.parentNode) cover.remove(); }, REDUCED ? 0 : 650);
+        title.focus({ preventScroll: true });
+        page.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+      }
+      cover.addEventListener("click", openDiary);
+
+      function finish() {
+        nextBtn.hidden = true;
+        end.hidden = false;
+        if (!REDUCED) end.classList.add("shown");
+        heartBtn.focus({ preventScroll: true });
+      }
+      nextBtn.addEventListener("click", () => {
+        const hidden = page.querySelectorAll(".diary-sec[hidden]");
+        const nextSec = hidden[0];
+        if (!nextSec) { finish(); return; }
+        nextSec.hidden = false;
+        if (!REDUCED) nextSec.classList.add("shown");
+        const head = nextSec.querySelector(".diary-sec-title");
+        if (head) head.focus({ preventScroll: true });
+        nextSec.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+        if (hidden.length === 1) finish();
+      });
+
+      heartBtn.addEventListener("click", () => {
+        const open = note.hidden;
+        note.hidden = !open;
+        heartBtn.setAttribute("aria-expanded", String(open));
+      });
+    });
+  })();
+
   /* ═══════════ 7 · VIDEOS ═══════════ */
   (function videos() {
     const grid = $("#videosGrid");

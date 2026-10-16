@@ -190,6 +190,110 @@ const SITE = {
   ],
 
   /* ───────────────────────────────────────────────
+     MY VIRTUAL DIARY ♡ — my private pages for her
+     To add a future entry, copy this whole block and
+     change the words. Fields:
+       id        unique name, anything
+       stamp     short date shown on the stamp, once
+       date      full date (kept for chronology)
+       title     handwritten entry title (no date in it —
+                 the stamp already shows it once)
+       subtitle  small line under the title
+       sections  [{ heading, paragraphs }]
+                 a paragraph is a string, or
+                 { text, style } where style can be:
+                 "bohat"        (the growing Bohat stack)
+                 "bohat-final"  (the big BOHAT BOHAT line)
+                 "bohat-line"   (one emphatic bohat line)
+                 "meaning"      (a heart-accented line)
+       photos    [{ src, cap }] — empty [] shows a cute
+                 "photo to be tucked in" placeholder
+       videos    [{ src, poster, cap }] — optional
+       heartNote tiny note behind the little heart
+       signOff   the closing signature line
+       seal      the closing stamp text
+       featured  true = the extra-special presentation
+     ─────────────────────────────────────────────── */
+  DIARY: [
+    {
+      id: "first-kiss-2026-10-13",
+      stamp: "13 OCT 2026",
+      date: "13 October 2026",
+      title: "The Day My Heart Went BOHAT BOHAT BOHAT ♡",
+      subtitle: "A tiny kiss, a little hand, and a heart that couldn't stop going hehehehehe.",
+      featured: true,
+      sections: [
+        {
+          heading: "Our Little First ♡",
+          paragraphs: [
+            "Baby Ridu, hehehehehehe. Today, 13 October, we had our first little peck on the cheek, and you were asleep. It was so, so, so, so, so cute. I genuinely don't even know how to explain it. 🥹♡",
+            "Anddddddddd, I love herrrrrrrrrrrrrr.",
+            { text: "Bohat.", style: "bohat" },
+            { text: "Bohat.", style: "bohat" },
+            { text: "Bohat.", style: "bohat" },
+            { text: "Bohat.", style: "bohat" },
+            { text: "BOHAT BOHAT BOHAT. ❤️", style: "bohat-final" },
+          ],
+        },
+        {
+          heading: "And I Love Her Even More",
+          paragraphs: [
+            "Anddddddddd, my baby, my little Ridu, you are the woman of my dreamssssssssssss.",
+            "I love you so much that sometimes I genuinely don't know what to do with all this love. Hehehehehehe. You're my jaan, my kaleja, my cutie pie, my sweetie, meri jaan, mera baccha.",
+          ],
+        },
+        {
+          heading: "The Hand Kiss 🥹",
+          paragraphs: [
+            "And then, and then, and thennnnnnn.",
+            "Today, before kissing your hand, I touched your little hand with my eyes first, and then I proceeded to kiss my little babyyyyyyyyy.",
+            "OH MY GOSHHHHHH.",
+            "That moment was so intimate to me. Maine aaj tak itna romantic kuch nahi kiya tha. It felt so pure, so gentle, so special. I genuinely think that kissing your hand was the peak romantic thing I've ever done.",
+            "Like, WOAHHHHHH.",
+            "I cannot even explain it properly. It was one of those tiny moments that somehow feels bigger than everything else.",
+          ],
+        },
+        {
+          heading: "My Little Baby Ridu ♡",
+          paragraphs: [
+            "When I kissed your hand, it felt so delicate and precious, like kissing a little baby's hand.",
+            "But out of all the little babies I've ever met, HAHAHAHA, there's only one little baby who is MY Ridu. 🤣❤️",
+            "Because you're the only baby I know like this, my jaan, my kaleja, my cutie pie, my sweetie, meri jaan, meri pyaari si Ridu.",
+            "You're my little world.",
+          ],
+        },
+        {
+          heading: "A First That Means So Much",
+          paragraphs: [
+            { text: "I HAVE NEVER EVER KISSED ANYONE'S HAND LIKE THIS, EXCEPT MY PARENTS.", style: "meaning" },
+            "And today, I did the same with you.",
+            "That is why this means so much to me. It wasn't just a kiss on the hand. It was a tiny moment where I felt how deeply I care about you, how precious you are to me, and how much love I have for you.",
+            "You mean the world to me, Ridu.",
+          ],
+        },
+        {
+          heading: "My Jaan, My Kaleja ♡",
+          paragraphs: [
+            "I would do anything and everything for you, my baby.",
+            "Meri jaan. Mera kaleja. Mera baccha hai Ridu.",
+            "My little baby.",
+            "My favourite person.",
+            "The woman of my dreams.",
+            "Anddddddddd, if you ever wonder how much I love you, just remember this:",
+            { text: "Bohat. Bohat. Bohat. Bohat. Bohat. BOHAT. ♡", style: "bohat-line" },
+            "Hehehehehehe. I love herrrrrrrrrrrrrrrr.",
+          ],
+        },
+      ],
+      photos: [],
+      videos: [],
+      heartNote: "I still remember how special that moment felt. ♡",
+      signOff: "— Your boy, who is still thinking about that tiny hand kiss.",
+      seal: "SEALED WITH LOVE ♡",
+    },
+  ],
+
+  /* ───────────────────────────────────────────────
      MOVING MEMORIES — the videos
      ─────────────────────────────────────────────── */
   VIDEOS: [
