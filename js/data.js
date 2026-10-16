@@ -71,13 +71,6 @@ const SITE = {
       media: { src: "assets/posters/COFFEE101.jpg", cap: "COFFEE101 — the coffee day", video: "assets/videos/COFFEE101.mp4" },
     },
     {
-      icon: "📞",
-      when: "the in-between days",
-      title: "screens full of smiles",
-      text: "Every call, every little chat, every screenshot I kept — distance never stood a chance.",
-      media: { src: "assets/photos/photo_053.jpg", cap: "our video calls ♡", video: null },
-    },
-    {
       icon: "👗",
       when: "the first traditional",
       title: "soft pink & unforgettable",
