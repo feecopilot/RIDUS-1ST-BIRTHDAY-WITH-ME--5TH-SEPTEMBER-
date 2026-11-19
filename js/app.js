@@ -283,6 +283,52 @@
     const HEART_DASH = '<svg viewBox="0 0 40 40" width="46" height="46" aria-hidden="true">'
       + '<path d="M20 34 C12 27 5 22 5 15 C5 10.4 8.9 7 13.5 7 c2.7 0 5.1 1.3 6.5 3.3 C21.4 8.3 23.8 7 26.5 7 31.1 7 35 10.4 35 15 35 22 28 27 20 34z" fill="none" stroke="#e8a9c0" stroke-width="2.5" stroke-dasharray="4 4"/>'
       + '</svg>';
+    /* a dashed pressed flower — for the artwork keepsake slot */
+    const FLOWER_DASH = '<svg viewBox="-16 -16 32 32" width="46" height="46" aria-hidden="true">'
+      + '<g fill="#fde4ec" stroke="#e8a9c0" stroke-width="1.4" stroke-dasharray="3 2.4">'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(72)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(144)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(216)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(288)"/>'
+      + '</g>'
+      + '<circle cx="0" cy="0" r="3.6" fill="#fbe6b8" stroke="#d9b96a" stroke-width="1.2"/>'
+      + '</svg>';
+    /* decorative section stickers — same visual language as the universe app */
+    const flowerDoodle = (fill, stroke, size) =>
+      '<svg viewBox="-16 -16 32 32" width="' + size + '" height="' + size + '" aria-hidden="true">'
+      + '<g fill="' + fill + '" stroke="' + stroke + '" stroke-width="1.3">'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(72)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(144)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(216)"/>'
+      + '<ellipse cx="0" cy="-9.5" rx="4.4" ry="6.4" transform="rotate(288)"/>'
+      + '</g>'
+      + '<circle cx="0" cy="0" r="3.6" fill="#fbe6b8" stroke="#d9b96a" stroke-width="1.2"/>'
+      + '</svg>';
+    const PHONE_STICKER = '<svg viewBox="0 0 48 66" width="32" height="44" aria-hidden="true">'
+      + '<g transform="rotate(8 24 33)">'
+      + '<rect x="9" y="5" width="30" height="56" rx="9" fill="#fffdf6" stroke="#5b4640" stroke-width="2.4"/>'
+      + '<rect x="13" y="11" width="22" height="36" rx="4" fill="#fdeef3" stroke="#f2a7bc" stroke-width="1.5"/>'
+      + '<path d="M24 27c-2.6-3.9-8-2.7-8 1.4 0 3 3.7 5.6 8 8.4 4.3-2.8 8-5.4 8-8.4 0-4.1-5.4-5.3-8-1.4z" fill="#ee8ba6"/>'
+      + '<rect x="19" y="7.4" width="10" height="2.4" rx="1.2" fill="#d6607f"/>'
+      + '<circle cx="24" cy="54.5" r="3" fill="none" stroke="#5b4640" stroke-width="1.6"/>'
+      + '</g>'
+      + '</svg>';
+    const sectionFlair = (kind) => {
+      const span = document.createElement("span");
+      if (kind === "phone") {
+        span.className = "diary-flair";
+        span.innerHTML = PHONE_STICKER;
+      } else if (kind === "three-hours") {
+        span.className = "diary-flair diary-flair--hours";
+        span.textContent = "three hours straight ♡";
+      } else if (kind === "flowers") {
+        span.className = "diary-flair diary-flair--flowers";
+        span.innerHTML = flowerDoodle("#f7c8d8", "#c98a9f", 34) + flowerDoodle("#fdf0cf", "#d9b96a", 23);
+      }
+      return span;
+    };
 
     SITE.DIARY.forEach((entry, i) => {
       const el = document.createElement("article");
@@ -325,6 +371,8 @@
       stamp.className = "diary-stamp";
       stamp.textContent = entry.stamp;
       page.appendChild(stamp);
+      /* a long date stamp gets the wrapping layout (see .stamp-wide in the css) */
+      if ((entry.stamp || "").length > 14) page.classList.add("stamp-wide");
 
       const title = document.createElement("h3");
       title.className = "diary-title";
@@ -346,14 +394,26 @@
         phWrap.className = "diary-photos";
         entry.photos.forEach((p) => {
           const fig = document.createElement("figure");
-          fig.className = "diary-photo";
-          const idx = lbRegister(p.src, p.cap, null);
-          const img = document.createElement("img");
-          img.src = p.src;
-          img.alt = p.cap;
-          img.loading = "lazy";
-          img.addEventListener("click", () => lbOpen(idx));
-          fig.appendChild(img);
+          fig.className = "diary-photo" + (p.keep ? " keep" : "");
+          if (p.src) {
+            const idx = lbRegister(p.src, p.cap, null);
+            const img = document.createElement("img");
+            img.src = p.src;
+            img.alt = p.alt || p.cap;
+            img.loading = "lazy";
+            img.addEventListener("click", () => lbOpen(idx));
+            fig.appendChild(img);
+          } else {
+            /* a labelled slot waiting for its photograph —
+               artwork keepsakes get the flower frame instead */
+            const frame = document.createElement("div");
+            frame.className = "diary-photo-frame";
+            frame.innerHTML = p.art ? FLOWER_DASH : HEART_DASH;
+            const soon = document.createElement("span");
+            soon.textContent = p.art ? "the artwork rests here ♡" : "tucked in soon ♡";
+            frame.appendChild(soon);
+            fig.appendChild(frame);
+          }
           const cap = document.createElement("figcaption");
           cap.className = "diary-photo-cap";
           cap.textContent = p.cap;
@@ -386,11 +446,15 @@
         const secEl = document.createElement("section");
         secEl.className = "diary-sec";
         secEl.id = "diarySec-" + entry.id + "-" + s;
+        const head = document.createElement("div");
+        head.className = "diary-sec-head";
         const h = document.createElement("h4");
         h.className = "diary-sec-title";
         h.tabIndex = -1;
         h.textContent = sec.heading;
-        secEl.appendChild(h);
+        head.appendChild(h);
+        if (sec.flair) head.appendChild(sectionFlair(sec.flair));
+        secEl.appendChild(head);
         let bohatRun = 0;
         sec.paragraphs.forEach((p) => {
           const isObj = typeof p === "object" && p !== null;

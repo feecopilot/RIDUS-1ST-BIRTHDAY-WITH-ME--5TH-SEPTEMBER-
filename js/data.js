@@ -192,15 +192,27 @@ const SITE = {
        title     handwritten entry title (no date in it —
                  the stamp already shows it once)
        subtitle  small line under the title
-       sections  [{ heading, paragraphs }]
+       sections  [{ heading, flair?, paragraphs }]
+                 flair (optional) = a decorative sticker
+                 beside the heading:
+                 "phone"        (a little video-call phone)
+                 "three-hours"  (a "three hours straight" chip)
+                 "flowers"      (two pressed-flower doodles)
                  a paragraph is a string, or
                  { text, style } where style can be:
                  "bohat"        (the growing Bohat stack)
                  "bohat-final"  (the big BOHAT BOHAT line)
                  "bohat-line"   (one emphatic bohat line)
                  "meaning"      (a heart-accented line)
-       photos    [{ src, cap }] — empty [] shows a cute
-                 "photo to be tucked in" placeholder
+       photos    [{ src, cap, alt?, keep?, art?, pending? }]
+                 — alt overrides the caption as alt
+                 text; pending (or no src) shows a
+                 labelled "tucked in soon" slot; keep =
+                 the wider keepsake frame for treasures;
+                 art = the flower-dashed artwork frame
+                 ("the artwork rests here");
+                 empty [] shows a cute "photo to be
+                 tucked in" placeholder
        videos    [{ src, poster, cap }] — optional
        heartNote tiny note behind the little heart
        signOff   the closing signature line
@@ -282,6 +294,65 @@ const SITE = {
       videos: [],
       heartNote: "I still remember how special that moment felt. ♡",
       signOff: "— Your boy, who is still thinking about that tiny hand kiss.",
+      seal: "SEALED WITH LOVE ♡",
+    },
+    {
+      id: "first-facetime-2026-11-09",
+      stamp: "MONDAY, 09 NOVEMBER 2026",
+      date: "Monday, 9 November 2026",
+      title: "A Three-Hour FaceTime, Her Eyes & Flowers That Became Art ♡",
+      subtitle: "Our First FaceTime",
+      featured: true,
+      sections: [
+        {
+          heading: "A Very Special First FaceTime",
+          flair: "phone",
+          paragraphs: [
+            "Today is 9th November, and it's a Monday. And today started with a very sweet thing. Ridu's mom has been to Ziarat now, so we did our FaceTime for the very first time. Like, the video call, and we talked for three hours straight. And it was very good.",
+          ],
+        },
+        {
+          heading: "Three Hours of Just Us",
+          flair: "three-hours",
+          paragraphs: [
+            "I was just looking at her eyes all the time. And even the, you know, the freaky side also came out. She said, “My lips are so dry.” So I said, “What? Are your lips dry?” You know, you know? Very freaky way, like freaky but funny.",
+          ],
+        },
+        {
+          heading: "Meko Pyaar Ho Gaya Isse",
+          paragraphs: [
+            "And then we talked a lot. And even Tahzeeb Aapa was there, my elder sister. And then I was telling my sister, “Meko pyaar ho gaya isse.” And Ridu was laughing, and her magna was so on point. Yeah, it's always, it's just so beautiful. Her magna is just like, I fall in love with her even more every time I see her. And if it's a magna, I just go crazy. It's very beautiful.",
+          ],
+        },
+        {
+          heading: "The Flowers She Gave Me",
+          flair: "flowers",
+          paragraphs: [
+            "And today, the flowers I—she had got me the flowers. I plucked every flower and made a beautiful drawing out of it. And I have stuck that.",
+          ],
+        },
+        {
+          heading: "A Little Piece of Her, Made by Me",
+          flair: "flowers",
+          paragraphs: [
+            "You know, I've made artwork using the flowers she gave me. I dried them up because I wanted to do something by myself and not, you know, by giving them to someone and getting them done in acrylic and all that. I wanted to have a personal look, a personal touch.",
+            "Yeah, so that's it for today.",
+          ],
+        },
+      ],
+      photos: [
+        /* 1 · First FaceTime / related photograph — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "our first FaceTime ♡", alt: "screenshot from our very first FaceTime video call" },
+        /* 2 · Flower artwork made using Rida's flowers — the keepsake [INSERT IMAGE FILENAME HERE] */
+        { pending: true, keep: true, art: true, cap: "the flower artwork, made from the flowers she gave me 🌸", alt: "handmade artwork pressed from the flowers Rida gave" },
+        /* 3 · Additional photograph — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "another little moment ♡" },
+        /* 4 · Additional photograph — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "one more memory ♡" },
+      ],
+      videos: [],
+      heartNote: "I was just looking at her eyes all the time. ♡",
+      signOff: "I love you, मेरी जान, मेरा baby. ❤️",
       seal: "SEALED WITH LOVE ♡",
     },
   ],

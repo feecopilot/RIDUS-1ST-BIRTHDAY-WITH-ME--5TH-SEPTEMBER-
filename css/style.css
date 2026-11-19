@@ -24,7 +24,7 @@
 
   --font-round: "Baloo 2", "Comic Sans MS", cursive;
   --font-body: "Quicksand", "Segoe UI", sans-serif;
-  --font-hand: "Caveat", "Segoe Script", cursive;
+  --font-hand: "Caveat", "Baloo 2", "Segoe Script", cursive; /* Baloo 2 carries the Devanagari (मेरी जान) Caveat lacks */
 
   --wobble: 255px 18px 225px 18px / 18px 225px 18px 255px;
   --wobble-2: 18px 255px 18px 225px / 225px 18px 255px 18px;
@@ -581,6 +581,20 @@ button { font-family: inherit; }
   transform: rotate(6deg); opacity: .92;
   background: rgba(255,255,255,.6);
 }
+/* a longer date stamp (e.g. MONDAY, 09 NOVEMBER 2026) —
+   wraps into two tidy lines; the title keeps its distance */
+.diary-page.stamp-wide .diary-stamp {
+  max-width: 174px; text-align: center; line-height: 1.7;
+}
+.diary-page.stamp-wide .diary-title { margin-right: 214px; }
+@media (max-width: 780px) {
+  /* narrow screens: the long stamp flows above the title instead of overlapping it */
+  .diary-page.stamp-wide .diary-stamp {
+    position: static; display: inline-block;
+    margin: 0 0 14px; transform: rotate(-2deg);
+  }
+  .diary-page.stamp-wide .diary-title { margin-right: 0; }
+}
 
 .diary-title {
   font-family: var(--font-hand); font-weight: 700;
@@ -594,7 +608,7 @@ button { font-family: inherit; }
 }
 
 /* the placeholder / real polaroid on the page */
-.diary-photos { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin: 6px 0 10px; }
+.diary-photos { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; align-items: flex-start; margin: 6px 0 10px; }
 .diary-photo {
   margin: 0; background: #fff; padding: 9px 9px 6px;
   border-radius: 4px; box-shadow: var(--shadow-soft);
@@ -622,6 +636,24 @@ button { font-family: inherit; }
   color: var(--ink); padding: 7px 2px 2px; line-height: 1.3;
 }
 
+/* the keepsake slot — for a treasure like the flower artwork */
+.diary-photo.keep { max-width: 300px; flex-basis: 300px; position: relative; }
+.diary-photo.keep::before { /* a washi tape holding it down ♡ (same convention as .p-tape) */
+  content: ""; position: absolute; top: -12px; left: 50%;
+  width: 84px; height: 26px; transform: translateX(-50%) rotate(-2deg);
+  background: rgba(223,242,220,.7); border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(167,109,134,.15);
+  z-index: 2;
+}
+.diary-photo.keep .diary-photo-frame {
+  aspect-ratio: 4/5; background: var(--butter);
+  border-color: var(--butter-deep);
+}
+/* a real keepsake shows at its true proportions — pinned in, never cropped */
+.diary-photo.keep img {
+  aspect-ratio: auto; object-fit: contain; background: var(--paper-soft);
+}
+
 /* sections + text */
 .diary-sec { margin: 26px 0 0; }
 .diary-sec[hidden] { display: none; }
@@ -631,6 +663,23 @@ button { font-family: inherit; }
   margin: 0 0 12px; line-height: 1.3;
 }
 .diary-sec-title::before { content: "♡ "; color: var(--pink); font-size: .8em; }
+/* the heading row — title + a decorative sticker beside it */
+.diary-sec-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px;
+}
+.diary-sec-head .diary-sec-title { flex: 1 1 auto; }
+.diary-flair {
+  flex: 0 0 auto; display: inline-flex; align-items: center;
+  margin-top: 5px;
+}
+.diary-flair--hours {
+  font-family: var(--font-hand); font-size: 1.02rem; color: var(--pink-deep);
+  background: var(--butter); border: 1.6px dashed var(--pink);
+  border-radius: 999px; padding: 4px 14px; transform: rotate(-2deg);
+  white-space: nowrap;
+}
+.diary-flair--flowers { gap: 0; transform: rotate(-4deg); margin-top: 3px; }
 .diary-p {
   font-family: var(--font-body); font-size: 1.04rem; line-height: 1.85;
   color: var(--ink); margin: 0 0 14px;
@@ -742,9 +791,13 @@ button { font-family: inherit; }
   .diary-page::before { left: 28px; }
   .diary-title { margin-right: 44px; }
   .diary-stamp { top: 14px; right: 14px; font-size: .62rem; padding: 4px 8px; }
+  .diary-page.stamp-wide .diary-stamp { max-width: 148px; }
+  .diary-page.stamp-wide .diary-title { margin-right: 0; }
   .diary-p { font-size: 1rem; }
   .diary-sec-title { font-size: 1.45rem; }
+  .diary-flair--hours { font-size: .92rem; padding: 3px 11px; }
   .diary-photo { max-width: 175px; flex: 1 1 150px; }
+  .diary-photo.keep { max-width: 220px; flex-basis: 220px; }
 }
 
 /* ═══════════════ VIDEOS ═══════════════ */
