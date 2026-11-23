@@ -198,12 +198,29 @@ const SITE = {
                  "phone"        (a little video-call phone)
                  "three-hours"  (a "three hours straight" chip)
                  "flowers"      (two pressed-flower doodles)
+                 "strawberry"   (a little strawberry)
+                 "roses"        (two rose doodles)
+                 "bell"         (the doorbell that rang)
                  a paragraph is a string, or
                  { text, style } where style can be:
                  "bohat"        (the growing Bohat stack)
                  "bohat-final"  (the big BOHAT BOHAT line)
                  "bohat-line"   (one emphatic bohat line)
                  "meaning"      (a heart-accented line)
+                 or { runs: [{ t, b? }] } for lines that mix
+                 English and Hindi/Hinglish — every run with
+                 b: true renders bold (the Hinglish parts);
+                 joining all the t values must give the exact
+                 original sentence, never rewritten
+                 or { deco: "escape" } — a doodle strip that
+                 adds NO words, just a little drawing
+       chapters  (optional) [{ label, to }] — sticky chapter
+                 navigation for longer memories; to = "s3"
+                 (section 3) or "s3p2" (its 3rd paragraph);
+                 labels are for jumping around only — the
+                 story itself stays exactly as written
+       blurb     (optional) one little line shown on the
+                 closed cover, like an archive note
        photos    [{ src, cap, alt?, keep?, art?, pending? }]
                  — alt overrides the caption as alt
                  text; pending (or no src) shows a
@@ -211,6 +228,8 @@ const SITE = {
                  the wider keepsake frame for treasures;
                  art = the flower-dashed artwork frame
                  ("the artwork rests here");
+                 roses = the rose-dashed keepsake frame
+                 ("the roses rest here");
                  empty [] shows a cute "photo to be
                  tucked in" placeholder
        videos    [{ src, poster, cap }] — optional
@@ -353,6 +372,229 @@ const SITE = {
       videos: [],
       heartNote: "I was just looking at her eyes all the time. ♡",
       signOff: "I love you, मेरी जान, मेरा baby. ❤️",
+      seal: "SEALED WITH LOVE ♡",
+    },
+    {
+      id: "bathroom-escape-2026-11-20",
+      stamp: "FRIDAY, 20 NOVEMBER 2026",
+      date: "Friday, 20 November 2026",
+      title: "The Great Bathroom Escape",
+      subtitle: "The Pav Wala Incident — Except It Wasn't the Pav Wala 😭",
+      blurb: "A day full of hugs, roses, strawberry crush, cuddles, unexpected moments and one very unexpected visitor.",
+      featured: true,
+      chapters: [
+        { label: "The Arrival", to: "s0" },
+        { label: "Paaniiiiiiiiii!", to: "s0p2" },
+        { label: "The Chicken Garlic Noodles", to: "s1" },
+        { label: "The Hug I Had Been Waiting For", to: "s2" },
+        { label: "The Strawberry Crush Incident", to: "s3" },
+        { label: "The Sandwich Disaster", to: "s4" },
+        { label: "The Unexpected Mimbar Question", to: "s5" },
+        { label: "Our Retainers Ritual", to: "s6" },
+        { label: "The Proper Hug", to: "s7" },
+        { label: "Two Roses and One Very Special Moment", to: "s8" },
+        { label: "Seeing Her Hair for the First Time", to: "s9" },
+        { label: "Kitchen Slab, Table and Chair", to: "s10" },
+        { label: "Under the Same Blanket", to: "s11" },
+        { label: "The Maid Arrives at 4 PM", to: "s12" },
+        { label: "Locked Inside Her Bedroom", to: "s13" },
+        { label: "Her Parents' Bedroom", to: "s14" },
+        { label: "Through My Eyes", to: "s15" },
+        { label: "The Pav Wala Incident", to: "s16" },
+        { label: "The Great Bathroom Escape", to: "s16p10" },
+      ],
+      sections: [
+        {
+          heading: "1. The arrival",
+          paragraphs: [
+            "When I reached, first of all, I got off on the wrong side, and then I had to walk into a building. I confidently walked in because I couldn't let the guard know. He would make me enter my details in the entry book, and then her dad would know that someone had come.",
+            "And then I confidently walked in.",
+            { runs: [
+              { t: "Inside her building, she had already poured a glass of water for me and kept it ready. This is the best, cutest thing. " },
+              { t: "Ekdum paani nikal ke rakha usne mere liye. Paaniiiiiiiiii!", b: true },
+              { t: " Oh God, to be loved." },
+            ] },
+          ],
+        },
+        {
+          heading: "2. The chicken garlic noodles",
+          paragraphs: [
+            { runs: [
+              { t: "Usne mujhe bola tha, mere liye chicken garlic noodles try to make and bring.", b: true },
+              { t: " I was like, \"I want to make something for you.\"" },
+            ] },
+            { runs: [
+              { t: "It was okay, but it was too garlicky. It was garlicky. " },
+              { t: "Hum log dono ne sirf thoda sa khaya.", b: true },
+            ] },
+          ],
+        },
+        {
+          heading: "3. The hug I had been waiting for",
+          paragraphs: [
+            { runs: [
+              { t: "Abhi pehle toh I entered. Uske andar jaate saath usko zor se hug kiya, as I don't like onlookers looking at me making love to her, people seeing our expressions change.", b: true },
+            ] },
+            "Someday this will change, and I will kiss her, hehehehe.",
+            { runs: [
+              { t: "This is why I had never hugged her khulke, chippak ke, ekdum jakad ke.", b: true },
+              { t: " I had never kissed her, so yes, this is it. I got the chance to show my love and my freaky side to her." },
+            ] },
+          ],
+        },
+        {
+          heading: "4. The Mapro strawberry crush",
+          flair: "strawberry",
+          paragraphs: [
+            "After I had marked my territory, I saw the Mapro strawberry crush. I straight up pulled it up and poured it on her lips and licked straight from her lips. And even she said it's yummy, hehehehe.",
+            "And then, good we didn't do it earlier, or it would've been very freaky.",
+          ],
+        },
+        {
+          heading: "5. The sandwich incident",
+          paragraphs: [
+            "And then we had the sandwich she had saved up.",
+            "But, but, but, it got spoiled. We had both taken a bite, then we threw it, rinsed our mouths and started making out again.",
+          ],
+        },
+        {
+          heading: "6. The unexpected mimbar question",
+          paragraphs: [
+            "And while I had my hands where they should be during the makeout, she was like, \"Do you wanna see the mimbar????\" 😭😭😭😭😭😭😭😭",
+            { runs: [
+              { t: "It was thoda awkward because we're doing things and then a religious thing pulls up.", b: true },
+            ] },
+            "Okay, so yes, all that happened. We kissed. Ahhh, we kissed so much. At this point, I have the same saliva as hers. This is gonna be our 3rd-month anniversary gift.",
+          ],
+        },
+        {
+          heading: "7. Our retainers ritual",
+          paragraphs: [
+            "Firstly, we were sitting on the bed, and we did our retainers ritual. Whenever she removes the retainers and she wears them, I record a video. Her daily activities are so fun for me.",
+          ],
+        },
+        {
+          heading: "8. The proper hug",
+          paragraphs: [
+            "I told her I wanted to hug her properly. Then I told her, \"Let's stand.\"",
+            "We stood up, and I hugged her very tightly.",
+          ],
+        },
+        {
+          heading: "9. The two roses",
+          flair: "roses",
+          paragraphs: [
+            "I had purchased two roses for her. I got down on my knees, and I gave them to her, and I told her how much I love her.",
+            "And then, this is the first time I went down on my knees and gave something to someone. I wanted to do this for a long time.",
+            "Then she was very happy. She was overjoyed.",
+          ],
+        },
+        {
+          heading: "10. Seeing her hair for the first time",
+          paragraphs: [
+            "And a very big reveal: I saw her hair for the very first time.",
+            "She looks gorgeous, beautiful, and every other word that could define her beauty, but no words define her beauty like my brain and my eyes can.",
+            "Even if only she could see herself with my eyes, she would be amazed, shocked, happy, and every other happy word that could ever exist.",
+            "I know she is blushing right now while reading this, but you know, my baby.",
+          ],
+        },
+        {
+          heading: "11. Making out around the house",
+          paragraphs: [
+            "And we made out everywhere. Kitchen slab, table, chair.",
+            "Oh no, the chair was left. Okay, next time.",
+          ],
+        },
+        {
+          heading: "12. Cuddling on the sofa",
+          paragraphs: [
+            "And then, on her sofa, we cuddled. We shared the same blanket.",
+            "Sometimes I was on her, and sometimes she was on my chest. It was so soft, I swear to God.",
+            "This making out and taking care of her like anything was on my list, and I was on hers toooo.",
+            "It would make the best day of my life. Like a boy in my life, not sleeping on her chest, but sleeping with her, being with her.",
+            "The whole day, we were together, cuddled, cute moments.",
+          ],
+        },
+        {
+          heading: "13. The maid arrived at 4 PM",
+          paragraphs: [
+            "I reached around 2:00 at her place, and I left around 10.",
+            "At 4:00, the doorbell rang, and I had to move inside her bedroom because a maid had arrived to clean the rest of the house.",
+            "She was like, \"You have to be locked inside my room for 30 minutes while the maid completes her work.\"",
+          ],
+        },
+        {
+          heading: "14. Admiring her bedroom",
+          paragraphs: [
+            "And then, after some time, after 30 minutes, I was just admiring her bedroom, looking at things in the room: the bedroom, sofa, TV, and everything else.",
+            "It was so cute, very cute.",
+          ],
+        },
+        {
+          heading: "15. Her parents' bedroom and our moments",
+          paragraphs: [
+            "Then, after making out and all that, we went inside her parents' bedroom. We took some pictures in her parents' bedroom, to be precise.",
+            "Then we went into her bedroom, and we were lying on the floor.",
+          ],
+        },
+        {
+          heading: "16. My eyes and my words",
+          paragraphs: [
+            "I was telling her how I love you and how I love you.",
+            "Look at your eyes.",
+            { runs: [
+              { t: "Mujhe ye aankhein mili hain tujhe dekhne ke liye. Mujhe ye zubaan mili hai teri zubaan se ladane ke liye.", b: true },
+            ] },
+          ],
+        },
+        {
+          heading: "17. The Pav Wala Incident",
+          flair: "bell",
+          paragraphs: [
+            "So the twist in the story was while we were making out and I was telling her, \"It's getting late. I think I should leave,\" and all she was doing is pulling me towards her and kissing me.",
+            "(I loved it, would like to do it again.)",
+            "And then she was going on and on, and I also got turned on. Then we were kissing. We kept on kissing and kissing, lots of it.",
+            "Thennnnn. Thennnn. Thennnn.",
+            { runs: [
+              { t: "Bell baji! We both thought ki pav wala hoga. Dono dilasa de rahe hai ek dusre ko.", b: true },
+              { t: " Plot twisttt? Guess who it was?" },
+            ] },
+            "Her DADDDDDDDDDDDDDDDDDDDDDDDDDDDDD!",
+            "(Our dad to be precise, hehe.)",
+            { runs: [
+              { t: "Oh fuck, we both were so scared as fuck, as it was our both ka first time.", b: true },
+            ] },
+            { runs: [
+              { t: "Btw, we cuddled, kissed, made out and whatnot. " },
+              { t: "I know you're smiling while reading this (karu kya mark territory aake? 😘😘).", b: true },
+            ] },
+            { deco: "escape" },
+            "Then she told me to hide in her bathroom.",
+            "Thennnn, I was standing in the bathroom for like 145 mins.",
+            { runs: [
+              { t: "We both were scared: what if her brother turned up, as Komail babu sirf bahar baiththa hai, and hall ka bathroom is crazy 😭😭😭 nazdeek to hall, so I would've been there till 2 days if I had to.", b: true },
+            ] },
+            "You know, it was so crazy. I was shit scared.",
+            { runs: [
+              { t: "Thennnnnn, finally, after her saying for 4 times straight, \"Papa kapde badal lo, kapde badal lo,\" he finally walked towards his bedroom, went inside, locked the door, and thennnn I rannnn out of the house while having my backpack in my hand.", b: true },
+            ] },
+            "And yes, I didn't forget kissing her, saying \"I love you,\" and giving a fast kiss on your beautiful lips.",
+          ],
+        },
+      ],
+      photos: [
+        /* 1 · The two roses — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, keep: true, roses: true, cap: "the two roses 🌹", alt: "the two roses he went down on his knees with" },
+        /* 2 · Our day together — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "our day together ♡" },
+        /* 3 · The pictures we took in her parents' bedroom — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "from her parents' bedroom ♡" },
+        /* 4 · Additional photograph — [INSERT IMAGE FILENAME HERE] */
+        { pending: true, cap: "one more memory ♡" },
+      ],
+      videos: [],
+      heartNote: "Oh God, to be loved. ♡",
+      signOff: "— your boy, who ran out of the house with his backpack and his whole heart ♡",
       seal: "SEALED WITH LOVE ♡",
     },
   ],

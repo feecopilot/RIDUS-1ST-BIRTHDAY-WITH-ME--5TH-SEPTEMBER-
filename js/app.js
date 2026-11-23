@@ -294,6 +294,56 @@
       + '</g>'
       + '<circle cx="0" cy="0" r="3.6" fill="#fbe6b8" stroke="#d9b96a" stroke-width="1.2"/>'
       + '</svg>';
+    /* a dashed rose — for the two-roses keepsake slot */
+    const ROSE_DASH = '<svg viewBox="-16 -16 32 32" width="46" height="46" aria-hidden="true">'
+      + '<circle cx="0" cy="0" r="10.5" fill="none" stroke="#e8a9c0" stroke-width="1.5" stroke-dasharray="3 2.4"/>'
+      + '<path d="M6.5 0 C6.5 3.6 3.6 6.5 0 6.5 C-3.6 6.5 -6.5 3.6 -6.5 0 C-6.5 -3 -4 -5.5 -1.2 -5.5 C1.6 -5.5 3.4 -3.2 3.4 -0.8" fill="none" stroke="#e8a9c0" stroke-width="1.3" stroke-dasharray="2.4 2" stroke-linecap="round"/>'
+      + '<path d="M2.5 10.5 q6 1 8.5 6 M-2.5 10.5 q-6 1 -8.5 6" fill="none" stroke="#7fc79a" stroke-width="1.4" stroke-dasharray="2.4 2" stroke-linecap="round"/>'
+      + '</svg>';
+    /* a little rose doodle — filled petal circle with a spiral inside */
+    const roseDoodle = (size, petal, stroke) =>
+      '<svg viewBox="-16 -16 32 32" width="' + size + '" height="' + size + '" aria-hidden="true">'
+      + '<circle cx="0" cy="0" r="10" fill="' + petal + '" stroke="' + stroke + '" stroke-width="1.6"/>'
+      + '<path d="M6.5 0 C6.5 3.6 3.6 6.5 0 6.5 C-3.6 6.5 -6.5 3.6 -6.5 0 C-6.5 -3 -4 -5.5 -1.2 -5.5 C1.6 -5.5 3.4 -3.2 3.4 -0.8" fill="none" stroke="' + stroke + '" stroke-width="1.5" stroke-linecap="round"/>'
+      + '<path d="M2.5 10.5 q6 1 8.5 6 q-6.5 0 -8.5 -6 z" fill="#d5f2dc" stroke="#7fc79a" stroke-width="1.3"/>'
+      + '<path d="M-2.5 10.5 q-6 1 -8.5 6 q6.5 0 8.5 -6 z" fill="#d5f2dc" stroke="#7fc79a" stroke-width="1.3"/>'
+      + '</svg>';
+    const STRAWBERRY_STICKER = '<svg viewBox="0 0 44 50" width="28" height="32" aria-hidden="true">'
+      + '<g transform="rotate(7 22 26)">'
+      + '<path d="M22 14 C30.5 14 35.5 19.5 34 28 C32.5 37 27 44 22 45.5 C17 44 11.5 37 10 28 C8.5 19.5 13.5 14 22 14 z" fill="#ee8ba6" stroke="#5b4640" stroke-width="2.2"/>'
+      + '<path d="M15.5 13 q6.5 -7 13 0 q-6.5 4.5 -13 0 z" fill="#d5f2dc" stroke="#7fc79a" stroke-width="1.8"/>'
+      + '<path d="M22 11.5 q-1.4 -4.5 2.6 -6" fill="none" stroke="#7fc79a" stroke-width="1.8" stroke-linecap="round"/>'
+      + '<g fill="#fff1c9"><ellipse cx="17" cy="22" rx="1.3" ry="1.9"/><ellipse cx="27" cy="22" rx="1.3" ry="1.9"/><ellipse cx="22" cy="28" rx="1.3" ry="1.9"/><ellipse cx="16.5" cy="30" rx="1.3" ry="1.9"/><ellipse cx="27.5" cy="30" rx="1.3" ry="1.9"/><ellipse cx="19.5" cy="36" rx="1.3" ry="1.9"/><ellipse cx="24.5" cy="36" rx="1.3" ry="1.9"/></g>'
+      + '</g>'
+      + '</svg>';
+    const BELL_STICKER = '<svg viewBox="0 0 40 46" width="28" height="32" aria-hidden="true">'
+      + '<path d="M20 7 C28.5 7 31.5 13.5 31.5 21 L31.5 27.5 L34.5 32 L5.5 32 L8.5 27.5 L8.5 21 C8.5 13.5 11.5 7 20 7 z" fill="#ffd76e" stroke="#5b4640" stroke-width="2.3" stroke-linejoin="round"/>'
+      + '<circle cx="20" cy="6.5" r="2.7" fill="#5b4640"/>'
+      + '<circle cx="20" cy="37" r="3.6" fill="#5b4640"/>'
+      + '</svg>';
+    /* the escape doodle — a bathroom door, a running trail, the backpack,
+       and the hearts he ran out with. no words, just the moment. */
+    const ESCAPE_TRAIL = '<svg viewBox="0 0 560 78" aria-hidden="true">'
+      + '<g transform="translate(14 8)">'
+      + '<rect x="0" y="0" width="38" height="60" rx="4" fill="#fffdf6" stroke="#5b4640" stroke-width="2.4"/>'
+      + '<rect x="26" y="6" width="12" height="48" rx="3" fill="#fdeef3" stroke="#e8a9c0" stroke-width="1.8"/>'
+      + '<circle cx="21" cy="32" r="2.4" fill="#5b4640"/>'
+      + '</g>'
+      + '<path class="escape-trail" d="M66 46 C 108 22 146 62 190 42 C 232 24 254 58 296 44 C 336 30 352 56 392 42" fill="none" stroke="#e8a9c0" stroke-width="2.6" stroke-dasharray="7 8" stroke-linecap="round"/>'
+      + '<g fill="#fff" stroke="#e8a9c0" stroke-width="1.5">'
+      + '<circle cx="146" cy="50" r="4"/><circle cx="150" cy="43" r="2.4"/><circle cx="154" cy="53" r="2"/>'
+      + '<circle cx="318" cy="50" r="4"/><circle cx="322" cy="44" r="2.4"/>'
+      + '</g>'
+      + '<g transform="translate(398 16) rotate(-10)">'
+      + '<path d="M8 2 v-3 a7 7 0 0 1 14 0 v3" fill="none" stroke="#5b4640" stroke-width="2.2"/>'
+      + '<rect x="0" y="2" width="30" height="36" rx="9" fill="#bde7f7" stroke="#5b4640" stroke-width="2.3"/>'
+      + '<rect x="6" y="16" width="18" height="10" rx="4" fill="#8ab6d6" stroke="#5b4640" stroke-width="1.7"/>'
+      + '</g>'
+      + '<path d="M452 44 h-22 M462 34 h-16 M470 24 h-11" stroke="#e8a9c0" stroke-width="2.4" stroke-linecap="round"/>'
+      + '<path d="M492 40 c-3.4 -6.4 -13 -5 -13 1.4 c0 4.4 6.6 8.8 13 13 c6.4 -4.2 13 -8.6 13 -13 c0 -6.4 -9.6 -7.8 -13 -1.4 z" fill="#ff8fb8" stroke="#5b4640" stroke-width="2.1"/>'
+      + '<path d="M524 26 c-2.2 -4.2 -8.6 -3.2 -8.6 1 c0 2.8 4.4 5.6 8.6 8.4 c4.2 -2.8 8.6 -5.6 8.6 -8.4 c0 -4.2 -6.4 -5.2 -8.6 -1 z" fill="#ffd9e8" stroke="#5b4640" stroke-width="1.8"/>'
+      + '</svg>';
+
     /* decorative section stickers — same visual language as the universe app */
     const flowerDoodle = (fill, stroke, size) =>
       '<svg viewBox="-16 -16 32 32" width="' + size + '" height="' + size + '" aria-hidden="true">'
@@ -326,8 +376,25 @@
       } else if (kind === "flowers") {
         span.className = "diary-flair diary-flair--flowers";
         span.innerHTML = flowerDoodle("#f7c8d8", "#c98a9f", 34) + flowerDoodle("#fdf0cf", "#d9b96a", 23);
+      } else if (kind === "strawberry") {
+        span.className = "diary-flair diary-flair--strawberry";
+        span.innerHTML = STRAWBERRY_STICKER;
+      } else if (kind === "roses") {
+        span.className = "diary-flair diary-flair--roses";
+        span.innerHTML = roseDoodle(32, "#f7c8d8", "#c98a9f") + roseDoodle(22, "#fdf0cf", "#d9b96a");
+      } else if (kind === "bell") {
+        span.className = "diary-flair diary-flair--bell";
+        span.innerHTML = BELL_STICKER;
       }
       return span;
+    };
+
+    /* anchor id for a chapter target — "s3" (a section) or "s3p2" (a paragraph) */
+    const targetId = (entryId, to) => {
+      const pmm = /^s(\d+)p(\d+)$/.exec(to);
+      if (pmm) return "diaryP-" + entryId + "-" + pmm[1] + "-" + pmm[2];
+      const sm = /^s(\d+)$/.exec(to);
+      return sm ? "diarySec-" + entryId + "-" + sm[1] : "";
     };
 
     SITE.DIARY.forEach((entry, i) => {
@@ -355,7 +422,15 @@
       const coverOpen = document.createElement("span");
       coverOpen.className = "diary-cover-open";
       coverOpen.textContent = "open the diary ♡";
-      cover.append(coverLabel, coverFor, coverVol, coverOpen);
+      if (entry.blurb) {
+        const coverBlurb = document.createElement("p");
+        coverBlurb.className = "diary-cover-blurb";
+        coverBlurb.textContent = entry.blurb;
+        cover.append(coverLabel, coverFor, coverVol, coverBlurb);
+      } else {
+        cover.append(coverLabel, coverFor, coverVol);
+      }
+      cover.appendChild(coverOpen);
       el.appendChild(cover);
 
       /* — the page itself — */
@@ -388,6 +463,30 @@
         page.appendChild(sub);
       }
 
+      /* sticky chapter chips — only for memories long enough to need them */
+      const chapters = entry.chapters || null;
+      const paraTargets = new Set();
+      let tocNav = null;
+      let tocLinks = [];
+      if (chapters && chapters.length) {
+        chapters.forEach((ch) => {
+          const pm = /^s(\d+)p(\d+)$/.exec(ch.to);
+          if (pm) paraTargets.add(pm[1] + "-" + pm[2]);
+        });
+        tocNav = document.createElement("nav");
+        tocNav.className = "diary-toc";
+        tocNav.setAttribute("aria-label", "little chapters — jump anywhere in this memory");
+        tocLinks = chapters.map((ch) => {
+          const a = document.createElement("a");
+          a.href = "#" + targetId(entry.id, ch.to);
+          a.textContent = ch.label;
+          a.dataset.to = ch.to;
+          tocNav.appendChild(a);
+          return a;
+        });
+        page.appendChild(tocNav);
+      }
+
       /* photos: real ones open in the lightbox, none = a cute "to be tucked in" slot */
       if (entry.photos && entry.photos.length) {
         const phWrap = document.createElement("div");
@@ -408,9 +507,9 @@
                artwork keepsakes get the flower frame instead */
             const frame = document.createElement("div");
             frame.className = "diary-photo-frame";
-            frame.innerHTML = p.art ? FLOWER_DASH : HEART_DASH;
+            frame.innerHTML = p.art ? FLOWER_DASH : p.roses ? ROSE_DASH : HEART_DASH;
             const soon = document.createElement("span");
-            soon.textContent = p.art ? "the artwork rests here ♡" : "tucked in soon ♡";
+            soon.textContent = p.art ? "the artwork rests here ♡" : p.roses ? "the roses rest here ♡" : "tucked in soon ♡";
             frame.appendChild(soon);
             fig.appendChild(frame);
           }
@@ -442,6 +541,7 @@
       }
 
       /* sections — first two readable right away, the rest behind the button */
+      const secEls = [];
       entry.sections.forEach((sec, s) => {
         const secEl = document.createElement("section");
         secEl.className = "diary-sec";
@@ -456,9 +556,19 @@
         if (sec.flair) head.appendChild(sectionFlair(sec.flair));
         secEl.appendChild(head);
         let bohatRun = 0;
-        sec.paragraphs.forEach((p) => {
+        sec.paragraphs.forEach((p, pi) => {
+          /* a pure doodle strip — adds a drawing, never words */
+          if (p && typeof p === "object" && p.deco) {
+            const deco = document.createElement("div");
+            deco.className = "diary-deco diary-deco--" + p.deco;
+            deco.setAttribute("aria-hidden", "true");
+            deco.innerHTML = p.deco === "escape" ? ESCAPE_TRAIL : "";
+            secEl.appendChild(deco);
+            return;
+          }
           const isObj = typeof p === "object" && p !== null;
-          const text = isObj ? p.text : p;
+          const runs = isObj && Array.isArray(p.runs) ? p.runs : null;
+          const text = runs ? runs.map((r) => r.t).join("") : isObj ? p.text : p;
           const style = isObj ? p.style : null;
           const para = document.createElement("p");
           if (style === "bohat") {
@@ -470,11 +580,30 @@
           } else {
             para.className = "diary-p";
           }
-          para.textContent = text;
+          if (runs) {
+            /* mixed-language lines — the Hinglish runs render bold,
+               the joined text stays exactly the original */
+            runs.forEach((r) => {
+              if (r.b) {
+                const strong = document.createElement("strong");
+                strong.textContent = r.t;
+                para.appendChild(strong);
+              } else {
+                para.appendChild(document.createTextNode(r.t));
+              }
+            });
+          } else {
+            para.textContent = text;
+          }
+          if (paraTargets.has(s + "-" + pi)) {
+            para.id = "diaryP-" + entry.id + "-" + s + "-" + pi;
+            para.tabIndex = -1;
+          }
           secEl.appendChild(para);
         });
         if (s > 1) secEl.hidden = true;
         page.appendChild(secEl);
+        secEls.push(secEl);
       });
 
       /* optional videos (for future entries) */
@@ -577,6 +706,60 @@
         note.hidden = !open;
         heartBtn.setAttribute("aria-expanded", String(open));
       });
+
+      /* — chapter chips behaviour (only for entries that have them) — */
+      if (tocNav) {
+        tocNav.addEventListener("click", (e) => {
+          const a = e.target.closest("a");
+          if (!a) return;
+          e.preventDefault();
+          const to = a.dataset.to || "";
+          const sm = /^s(\d+)/.exec(to);
+          const upTo = sm ? Number(sm[1]) : 0;
+          /* reveal every page on the way, so the jump always lands on words */
+          secEls.forEach((secEl, si) => {
+            if (si <= upTo && secEl.hidden) {
+              secEl.hidden = false;
+              if (!REDUCED) secEl.classList.add("shown");
+            }
+          });
+          if (!page.querySelector(".diary-sec[hidden]")) finish();
+          const target = document.getElementById(targetId(entry.id, to));
+          if (target) {
+            target.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" });
+            const focusEl = target.classList.contains("diary-sec")
+              ? target.querySelector(".diary-sec-title")
+              : target;
+            if (focusEl) focusEl.focus({ preventScroll: true });
+          }
+        });
+        /* highlight the chapter she's currently reading */
+        const chapterEls = chapters
+          .map((ch) => document.getElementById(targetId(entry.id, ch.to)))
+          .filter(Boolean);
+        const markActive = () => {
+          if (pageWrap.hidden) return;
+          const mark = window.innerHeight * 0.42;
+          let current = 0;
+          chapterEls.forEach((el, ti) => {
+            if (!el.getClientRects().length) return; /* still a hidden page — not read yet */
+            if (el.getBoundingClientRect().top <= mark) current = ti;
+          });
+          tocLinks.forEach((a, ai) => a.classList.toggle("active", ai === current));
+          const act = tocLinks[current];
+          if (act && tocNav.scrollWidth > tocNav.clientWidth) {
+            const left = act.offsetLeft - tocNav.clientWidth / 2 + act.offsetWidth / 2;
+            tocNav.scrollTo({ left: Math.max(0, left), behavior: REDUCED ? "auto" : "smooth" });
+          }
+        };
+        let tocTick = false;
+        window.addEventListener("scroll", () => {
+          if (tocTick) return;
+          tocTick = true;
+          requestAnimationFrame(() => { markActive(); tocTick = false; });
+        }, { passive: true });
+        markActive();
+      }
     });
   })();
 
